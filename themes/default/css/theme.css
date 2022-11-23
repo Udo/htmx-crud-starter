@@ -1,0 +1,236 @@
+<?php
+
+	$bg_color = '#111111';
+	$layer_color = 'rgba(255,255,255,0.1)';
+	$layer_color_hl = 'rgba(255,255,255,0.2)';
+	$text_color = '#aaaaaa';
+	$highlight = 'rgba(20,160,255,0.5)';
+	$interact_bg = '#3388cc;';
+	$interact_color = '#fff;';
+	$border = '2px solid rgba(120,120,120,0.75)';
+	$margin = 8;
+
+?>
+
+@font-face {
+	font-family: default_font;
+	src: url(../fonts/b612/b612-regular.ttf);
+}
+@font-face {
+	font-family: default_font;
+	src: url(../fonts/b612/b612-italic.ttf);
+	font-style: italic;
+}
+@font-face {
+	font-family: default_font;
+	src: url(../fonts/b612/b612-bold.ttf);
+	font-weight: bold;
+}
+@font-face {
+	font-family: default_font;
+	src: url(../fonts/b612/b612-bold-italic.ttf);
+	font-weight: bold;
+	font-style: italic;
+}
+* {
+	font-family: inherit;
+	font-size: inherit;
+	box-sizing: inherit;
+	line-height: inherit;
+}
+body {
+	font-family: default_font;
+	font-size: 15px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 1.0;
+	box-sizing: border-box;
+	background: <?= $bg_color ?>;
+	color: <?= $text_color ?>;
+}
+*::-moz-selection, ::-moz-selection {
+	background: rgba(20,80,160,0.7);
+}
+::selection, *::selection, input::selection {
+	background: rgba(20,80,160,0.7) !important;
+}
+a {
+	color: white;
+}
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin-left: <?= $margin ?>px;
+	margin-right: <?= $margin ?>px;
+}
+nav > a {
+	padding: <?= $margin ?>px;
+	display: inline-block;
+	background: <?= $layer_color ?>;
+	margin-right: <?= $margin*.25 ?>px;
+	color: <?= $text_color ?>;
+	text-decoration: none;
+}
+nav > a:hover {
+	background: <?= $layer_color_hl ?>;
+}
+content {
+	line-height: 1.8;
+	background: black;
+	position: absolute;
+	left: 0; top: 80px; right: 0;
+	bottom: 80px;
+}
+content > div {
+	margin: <?= $margin ?>px;
+	padding: <?= $margin ?>px;
+	font-weight: normal;
+	line-height: 130%;
+	background: <?= $layer_color ?>;
+	overflow-y: auto;
+}
+a {
+	color: blue;
+}
+footer {
+	text-align: center;
+	color: rgba(255,255,255,0.25);
+	margin-top: <?= $margin*2 ?>px;
+}
+h1 {
+	margin: <?= $margin ?>px;
+	padding: <?= $margin ?>px;
+	padding-top: 18px;
+	font-weight: normal;
+	line-height: normal;
+	background: <?= $layer_color ?>;
+}
+
+form > div {
+	display: flex;
+	margin-bottom: 2px;
+}
+
+form > div > label {
+	flex: 1;
+	background: rgba(0,0,0,0.1);
+	max-width: 160px;
+	padding: <?= $margin ?>px;
+}
+
+input, select {
+	background:black;
+	padding: <?= $margin ?>px;
+	color: <?= $interact_color ?>;
+	border: <?= $border ?>;
+	width: 100%;
+}
+
+select.borderless, input.borderless {
+	border-color: rgba(0,0,0,0);
+}
+
+select.edited, input.edited {
+	border-left-color: DarkOrange;
+}
+
+button, .btn, input[type=submit] {
+	margin: 0;
+	margin-right: <?= $margin ?>px;
+	padding: <?= $margin ?>px;
+	text-decoration: none;
+	background: <?= $interact_bg ?>;
+	color: <?= $interact_color ?>;
+	display: inline-block;
+	cursor: pointer;
+	opacity: 0.75;
+	border: <?= $border ?>;
+	width: auto;
+}
+
+button.cancel {
+	background: DarkOrange;
+	color: black;
+}
+
+button.red {
+	background: Red;
+	color: white;
+}
+
+button.edit {
+	background: black;
+	color: white;
+}
+
+button:hover.edit {
+	background: black;
+}
+
+button:hover, .btn:hover, form > div > input[type=submit]:hover {
+	background: <?= $interact_bg ?>;
+	opacity: 1.0;
+}
+
+.banner {
+	padding: <?= $margin ?>px;
+	color: DarkOrange;
+}
+
+.banner.blue {
+	x-background: #248;
+	color: #48f;
+}
+
+.banner.green {
+	x-background: #284;
+	color: #4f8;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+}
+
+table thead tr {
+	background: <?= $interact_bg ?>;
+	color: <?= $interact_color ?>;
+    text-align: left;
+    opacity: 0.75;
+}
+
+table th,
+table td {
+	width: auto;
+    padding: <?= $margin ?>px;
+    vertical-align:top;
+}
+
+table tbody tr {
+    border-bottom: 1px solid rgba(150,150,150,0.2);
+}
+
+table.row_clickable tbody tr:hover {
+    border-bottom-color: <?= $interact_bg ?>;
+    background: black;
+}
+
+table.row_clickable tbody tr {
+	cursor: pointer;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: rgba(0,0,0,0.2);
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 4px solid rgba(150,150,150,0.2);
+}
+
+table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}

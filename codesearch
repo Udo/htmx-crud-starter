@@ -1,0 +1,19 @@
+#!/bin/bash
+
+declare -a sea=("index.php" "config" "lib" "views")
+
+for vs in ${sea[@]}; do
+	grep -inr "$1" --include="*php" --color=tty $vs
+done
+
+declare -a csea=("css" "themes" "views")
+
+for vs in ${csea[@]}; do
+        grep -inr "$1" --include="*css" --color=tty $vs
+done
+
+declare -a jsea=("js" "views" "themes")
+
+for vs in ${jsea[@]}; do
+        grep -inr "$1" --include="*js" --color=tty $vs
+done
