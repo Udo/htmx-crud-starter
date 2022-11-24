@@ -37,16 +37,9 @@
 			'' => array('title' => 'Home', 'hidden' => true),
 		),
 
-		'db' => array(
-			'user' => 'crudapp',
-			'password' => 'x0a6/9Iv/i(RUAC4',
-			'database' => 'crudapp',
-			'socket' => '/run/mysqld/mysqld.sock',
-			'host' => 'p:localhost',
-			'prefix' => '',
-		),
-
 	);
+
+	include('config/settings.db.php');
 
 	if(!$GLOBALS['config']['url']['pretty'] && !$GLOBALS['config']['url']['root'])
 	{
