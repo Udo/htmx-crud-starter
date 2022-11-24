@@ -1,4 +1,5 @@
-<?
+<?php
+
 	header('content-type: text/css; charset=utf-8');
 
 	$cssList = explode(chr(10), trim(shell_exec('ls -1 *css')));

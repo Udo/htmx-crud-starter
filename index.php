@@ -14,7 +14,10 @@
 	if(URL::$route['render_list'] && sizeof(URL::$route['render_list']) > 0)
 		UI::render(URL::$route['render_list']);
 	else if(file_exists($view_file))
+	{
+		URL::$route['primary-view-not-found'] = false;
 		include($view_file);
+	}
 	else
 		URL::$route['content-type'] = '404';
 	if(URL::$route['primary-view-not-found'])
